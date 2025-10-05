@@ -8,7 +8,7 @@ on:
 jobs:
   build_and_push:
     name: Build and Push to Docker Hub
-    runs-on: ubuntu-latest
+    runs-on: self-host
 
     steps:
       - name: Checkout repository
