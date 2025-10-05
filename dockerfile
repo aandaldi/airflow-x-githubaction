@@ -18,7 +18,6 @@ RUN pip install -r requirements.txt
 
 # Copy the rest of the application
 COPY . .
-COPY dags/ /opt/airflow/dags
 
 RUN chown -R airflow:airflow ${AIRFLOW_HOME} && chmod +x entrypoint.sh
 
