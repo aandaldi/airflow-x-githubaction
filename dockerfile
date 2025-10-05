@@ -3,6 +3,8 @@ FROM python:3.10-slim
 
 ENV AIRFLOW_HOME=/opt/airflow
 
+RUN apt-get update
+
 WORKDIR ${AIRFLOW_HOME}
 
 # Copy requirements first to leverage Docker cache
