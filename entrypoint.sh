@@ -3,6 +3,7 @@ set -e
 
 # Initialize the database if it's not already initialized
 # This is a basic check; for production, consider more robust methods
+pip install -r requirements.txt
 echo "Initializing Airflow database..."
 airflow db init
 
