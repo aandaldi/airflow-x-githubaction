@@ -1,16 +1,22 @@
 #!/bin/bash
+set -e
 
 # Initialize the database if it's not already initialized
 # This is a basic check; for production, consider more robust methods
-echo "start";
-    echo "Initializing Airflow database..."
+echo "Initializing Airflow database..."
 airflow db init
+
+echo "Creating admin user..."
 airflow users create \
     --username admin \
     --firstname Admin \
     --lastname User \
     --role Admin \
     --email admin@example.com \
-    --password admin
+    --password admin || true # Fails silently if user already exists
 
-nohup bash airflow webserver > output.txt
+echo "Starting Airflow scheduler in the background..."
+airflow scheduler &
+
+echo "Starting Airflow webserver in the foreground..."
+exec airflow webserver
