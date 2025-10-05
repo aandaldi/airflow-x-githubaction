@@ -18,7 +18,6 @@ jobs:
         run: |
           IMAGE_TAG="docker.io/metaldock2/my-airflow:latest"
           podman build --file ./dockerfile --tag $IMAGE_TAG .
-          podman push $IMAGE_TAG
 
       - name: push container image
         run: |
