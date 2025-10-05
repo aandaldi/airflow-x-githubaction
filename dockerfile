@@ -16,7 +16,9 @@ WORKDIR ${AIRFLOW_HOME}
 COPY requirements.txt .
 
 # Copy the rest of the application
-COPY . .
+COPY ./dags .
+COPY ./entrypoint.sh .
+
 
 RUN chown -R airflow:airflow ${AIRFLOW_HOME} && chmod +x entrypoint.sh
 
