@@ -19,10 +19,10 @@ jobs:
           IMAGE_TAG="docker.io/metaldock2/my-airflow:latest"
           podman build --file ./dockerfile --tag $IMAGE_TAG .
 
-      - name: push container image
-        run: |
-          IMAGE_TAG="docker.io/metaldock2/my-airflow:latest"
-          podman push $IMAGE_TAG
+      # - name: push container image
+      #   run: |
+      #     IMAGE_TAG="docker.io/metaldock2/my-airflow:latest"
+      #     podman push $IMAGE_TAG
 
       - name: running on kubernetes
         run: |
