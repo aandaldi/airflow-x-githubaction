@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-airflow
+  labels:
+    app: my-airflow
+    type: app
+  namespace: airflow-dev
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      type: app
+  template:
+    metadata:
+      name: myapp-pod
+      labels:
+        app: my-airflow
+        type: app
+    spec:
+      containers:
+      - name: myairflow
+        image: docker.io/metaldock2/my-airflow:latest
+        ports:
+          - containerPort: 8080

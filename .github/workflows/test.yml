@@ -23,3 +23,8 @@ jobs:
         run: |
           IMAGE_TAG="docker.io/metaldock2/my-airflow:latest"
           podman push $IMAGE_TAG
+
+      - name: running on kubernetes
+        run: |
+          IMAGE_TAG="docker.io/metaldock2/my-airflow:latest"
+          kubectl apply -f ./k8s/deployment.yaml

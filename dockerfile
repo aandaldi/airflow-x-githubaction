@@ -20,9 +20,9 @@ COPY ./dags .
 COPY ./entrypoint.sh .
 
 
-RUN chown -R airflow:airflow ${AIRFLOW_HOME} && chmod +x entrypoint.sh
+# RUN chown -R airflow:airflow ${AIRFLOW_HOME} && chmod +x entrypoint.sh
 
 EXPOSE 8080
-USER airflow
+# USER airflow
 
 CMD ["./entrypoint.sh"]
